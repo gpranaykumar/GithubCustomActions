@@ -27,4 +27,7 @@ runs:
         $repoName = ($repo.Split('/'))[1]
         Write-Host "RepoName: $repoName "
         echo "TestOutput=true" >> $GITHUB_OUTPUT
+        Write-Host "powershell script"
+        echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
+        pwsh ./fetchRepoName.ps1
         Write-Host " *************** END *************** " 
