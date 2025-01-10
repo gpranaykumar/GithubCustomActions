@@ -15,6 +15,9 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    - name: Set Env Variable
+      run: |
+        echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
     - name: Test
       id: test
       shell: pwsh
@@ -28,7 +31,6 @@ runs:
         Write-Host "RepoName: $repoName "
         echo "TestOutput=true" >> $GITHUB_OUTPUT
         Write-Host "powershell script"
-        echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
         $scriptPath = Resolve-Path "${{github.action_path}}\fetchRepoName.ps1"
         . $scriptPath
         Write-Host " *************** END *************** " 
