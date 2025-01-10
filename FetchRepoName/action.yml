@@ -24,7 +24,7 @@ runs:
       id: test
       shell: pwsh
       env:
-        REPO_NAME: "Pranay"
+        REPO_NAME: "${{ github.repository }}"
       run: |
         Write-Host "Starting..."
         Write-Host "TestInp: ${{ inputs.TestInp }}"
