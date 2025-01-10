@@ -23,7 +23,7 @@ runs:
         Write-Host "TestInp: ${{ inputs.TestInp }}"
         Write-Host "Repo: ${{ github.repository }} "
         $repo = "${{ github.repository }}"
-        $repoName ($repo.split("/))[1]
+        $repoName ($repo.split("/"))[1]
         Write-Host "RepoName: $repoName "
         echo "TestOutput=true" >> $GITHUB_OUTPUT
         Write-Host " *************** END *************** " 
