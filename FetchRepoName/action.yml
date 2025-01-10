@@ -29,5 +29,5 @@ runs:
         echo "TestOutput=true" >> $GITHUB_OUTPUT
         Write-Host "powershell script"
         echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
-        pwsh ./fetchRepoName.ps1
+        . ./fetchRepoName.ps1
         Write-Host " *************** END *************** " 
