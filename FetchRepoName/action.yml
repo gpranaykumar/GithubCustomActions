@@ -15,14 +15,16 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - name: Set Env Variable
-      shell: pwsh
-      run: |
-        $repo = "${{ github.repository }}"
-        echo "REPO_NAME=$repo" >> $GITHUB_ENV
+    # - name: Set Env Variable
+    #   shell: pwsh
+    #   run: |
+    #     $repo = "${{ github.repository }}"
+    #     echo "REPO_NAME=$repo" >> $GITHUB_ENV
     - name: Test
       id: test
       shell: pwsh
+      env:
+        REPO_NAME: "Pranay"
       run: |
         Write-Host "Starting..."
         Write-Host "TestInp: ${{ inputs.TestInp }}"
