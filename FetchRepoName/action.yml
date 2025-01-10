@@ -22,7 +22,7 @@ runs:
         Write-Host "Starting..."
         Write-Host "TestInp: ${{ inputs.TestInp }}"
         Write-Host "Repo: ${{ github.repository }} "
-        $repo = "${{ github.repository }}"
+        $repo = ${{ github.repository }}
         $repoName $repo.Split('/')
         Write-Host "RepoName: $repoName "
         echo "TestOutput=true" >> $GITHUB_OUTPUT
