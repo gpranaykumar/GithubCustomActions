@@ -1,0 +1,26 @@
+name: Fetch Repo Name
+description: This action Prints Repo Name
+
+inputs:
+  TestInp:
+    description: 'Input test'
+    required: false
+    default: ""
+
+outputs:
+  TestOutput:
+    description: 'Output Test'
+    value: ${{ steps.test.outputs.TestOutput }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Test
+      id: test
+      shell: pwsh
+      run: |
+        Write-Host "Starting..."
+        Write-Host "TestInp: ${{ inputs.TestInp }}"
+        Write-Host "RepoName: ${{ github.repository }} "
+        echo "TestOutput=true" >> $GITHUB_OUTPUT
+        Write-Host " *************** END *************** " 
