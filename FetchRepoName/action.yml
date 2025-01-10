@@ -18,7 +18,8 @@ runs:
     - name: Set Env Variable
       shell: pwsh
       run: |
-        echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
+        $repo = "${{ github.repository }}"
+        echo "REPO_NAME=$repo" >> $GITHUB_ENV
     - name: Test
       id: test
       shell: pwsh
