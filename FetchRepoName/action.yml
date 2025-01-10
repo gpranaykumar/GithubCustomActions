@@ -16,6 +16,7 @@ runs:
   using: 'composite'
   steps:
     - name: Set Env Variable
+      shell: pwsh
       run: |
         echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
     - name: Test
