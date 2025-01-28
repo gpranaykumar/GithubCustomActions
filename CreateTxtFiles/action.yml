@@ -1,6 +1,15 @@
-name: 'Create Two TXT Files'
-description: 'Custom action to create two text files'
+name: Create Two TXT Files
+description: Custom action to create two text files
 
 runs:
-  using: 'powershell'
-  main: 'create-files.ps1'
+  using: 'composite'
+  steps:
+    - name: Create Txt files
+      id: test
+      shell: pwsh
+      run: |
+        Write-Host "Starting..."
+        Write-Host "powershell script"
+        $scriptPath = Resolve-Path "${{github.action_path}}\create-files.ps1"
+        . $scriptPath
+        Write-Host " *************** END *************** " 
