@@ -1,11 +1,22 @@
-# PowerShell script to create two files
-$file1 = "./Artifacts/file1.txt"
-$file2 = "./Artifacts/file2.txt"
+# Define file paths
+$artifactDir = "Artifacts"
+$file1 = "$artifactDir/file1.txt"
+$file2 = "$artifactDir/file2.txt"
 
+# Content to write to the text files
 $content1 = "Content for the first file."
 $content2 = "Content for the second file."
 
-Set-Content -Path $file1 -Value $content1
-Set-Content -Path $file2 -Value $content2
+# Create the Artifacts directory if it doesn't exist
+if (-not (Test-Path -Path $artifactDir)) {
+    New-Item -Path $artifactDir -ItemType Directory
+    Write-Host "Created directory: $artifactDir"
+}
 
-Write-Host "Files created."
+# Create the first file
+Set-Content -Path $file1 -Value $content1
+Write-Host "File '$file1' created with content."
+
+# Create the second file
+Set-Content -Path $file2 -Value $content2
+Write-Host "File '$file2' created with content."
