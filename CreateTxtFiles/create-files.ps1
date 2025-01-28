@@ -20,3 +20,12 @@ Write-Host "File '$file1' created with content."
 # Create the second file
 Set-Content -Path $file2 -Value $content2
 Write-Host "File '$file2' created with content."
+
+$relativePath = ".\Artifacts"  # example relative path
+$resolvedPath = Resolve-Path -Path $relativePath
+Write-Host "Resolved path ( .\Artifacts ): $resolvedPath"
+
+$relativePath = "Artifacts"  # example relative path
+$resolvedPath = Resolve-Path -Path $relativePath
+Write-Host "Resolved path ( Artifacts ): $resolvedPath"
+
