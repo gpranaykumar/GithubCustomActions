@@ -1,0 +1,6 @@
+name: 'Create Two TXT Files'
+description: 'Custom action to create two text files'
+
+runs:
+  using: 'powershell'
+  main: 'create-files.ps1'
